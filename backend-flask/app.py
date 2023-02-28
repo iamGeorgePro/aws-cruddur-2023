@@ -4,7 +4,7 @@ from flask_cors import CORS, cross_origin
 import os
 
 
-from services.notificaations_activities.py import *
+from services.notificaations_activities import *
 from services.home_activities import *
 from services.user_activities import *
 from services.create_activity import *
