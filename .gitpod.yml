@@ -16,6 +16,7 @@ tasks:
       source venv/bin/activate
       python -m venv venv
       pip install flask
+      pip install --upgrade pip
 
       
 ports:
