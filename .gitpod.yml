@@ -9,7 +9,7 @@ tasks:
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
 
-  - name: python environments
+  - name: python and Flask installation
     init: |
       pyenv install 3.10.9
       pyenv global 3.10.9
