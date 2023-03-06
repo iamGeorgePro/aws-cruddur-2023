@@ -25,7 +25,7 @@ services:
       - ./frontend-react-js:/frontend-react-js
     # Healtcheck code begins here      
     healthcheck:
-      test: curl --fail https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}/api/activities/home/
+      test: curl --fail https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}/api/activities/home
       interval: 30s
       timeout: 10s
       retries: 3

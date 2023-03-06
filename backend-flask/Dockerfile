@@ -21,11 +21,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY flask.sh /usr/local/bin/
+COPY flask.sh /usr/local/bin
 RUN chmod +x /usr/local/bin/flask.sh
 
 ENV FLASK_ENV=development
+ENV PORT=4567
 
 EXPOSE ${PORT}
 
-CMD [ "/usr/local/bin/flask.sh"]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
