@@ -1,7 +1,6 @@
 {
     "name": "Cruddur Configuration",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-    "dockerFile": "Dockerfile",
     "extensions": ["42Crunch.vscode-openapi"],
     "forwardPorts": [3000, 4567, 2000],
     "postCreateCommand": "sudo service postgresql start",
