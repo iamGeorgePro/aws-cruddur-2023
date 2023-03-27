@@ -1,10 +1,9 @@
 import './ProfileInfo.css';
 import {ReactComponent as ElipsesIcon} from './svg/elipses.svg';
 import React from "react";
-import { Auth } from 'aws-amplify';
 
 // [TODO] Authenication
-import Cookies from 'js-cookie'
+import { Auth } from 'aws-amplify';
 
 export default function ProfileInfo(props) {
   const [popped, setPopped] = React.useState(false);
@@ -17,6 +16,7 @@ export default function ProfileInfo(props) {
     try {
         await Auth.signOut({ global: true });
         window.location.href = "/"
+        localStorage.removeItem("access_token")
     } catch (error) {
         console.log('error signing out: ', error);
     }
