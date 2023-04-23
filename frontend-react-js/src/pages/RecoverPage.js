@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Auth } from 'aws-amplify';
 
 export default function RecoverPage() {
-  // Username is Email
+  // Username is Eamil
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [passwordAgain, setPasswordAgain] = React.useState('');
@@ -21,7 +21,6 @@ export default function RecoverPage() {
     .catch((err) => setErrors(err.message) );
     return false
   }
-  
   const onsubmit_confirm_code = async (event) => {
     event.preventDefault();
     setErrors('')
@@ -30,10 +29,11 @@ export default function RecoverPage() {
       .then((data) => setFormState('success'))
       .catch((err) => setErrors(err.message) );
     } else {
-      setErrors('Passwords do not match')
+      //setCognitoErrors('Passwords do not match')
     }
     return false
   }
+
   const username_onchange = (event) => {
     setUsername(event.target.value);
   }
