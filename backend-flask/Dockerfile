@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM python:3.10-slim-buster AS builder
+FROM 424925313933.dkr.ecr.us-east-1.amazonaws.com/cruddur-python
 
 WORKDIR /backend-flask
 
@@ -9,7 +9,7 @@ RUN pip3 install --user --no-cache-dir -r requirements.txt
 COPY . .
 
 # Stage 2: Run the application
-FROM python:3.10-slim-buster
+FROM 424925313933.dkr.ecr.us-east-1.amazonaws.com/cruddur-python
 
 WORKDIR /backend-flask
 
