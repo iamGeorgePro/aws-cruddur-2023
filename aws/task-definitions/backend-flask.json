@@ -5,18 +5,31 @@
   "networkMode": "awsvpc",
   "cpu": "256",
   "memory": "512",
-  "requiresCompatibilities": [
-    "FARGATE"
+  "requiresCompatibilities": [ 
+    "FARGATE" 
   ],
   "containerDefinitions": [
     {
+      "name": "xray",
+      "image": "public.ecr.aws/xray/aws-xray-daemon" ,
+      "essential": true,
+      "user": "1337",
+      "portMappings": [
+        {
+          "name": "xray",
+          "containerPort": 2000,
+          "protocol": "udp"
+        }
+      ]
+    },
+    {
       "name": "backend-flask",
-      "image": "424925313933.dkr.ecr.us-east-1.amazonaws.com/backend-flask",
+      "image":  "424925313933.dkr.ecr.us-east-1.amazonaws.com/backend-flask:v4",
       "essential": true,
       "healthCheck": {
         "command": [
           "CMD-SHELL",
-          "python /backend-flask/bin/flask/health-check"
+          "python /backend-flask/bin/health-check"
         ],
         "interval": 30,
         "timeout": 5,
@@ -27,7 +40,7 @@
         {
           "name": "backend-flask",
           "containerPort": 4567,
-          "protocol": "tcp",
+          "protocol": "tcp", 
           "appProtocol": "http"
         }
       ],
@@ -58,11 +71,11 @@
         },
         {
           "name": "FRONTEND_URL",
-          "value": "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+          "value": "*"
         },
         {
           "name": "BACKEND_URL",
-          "value": "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+          "value": "*"
         },
         {
           "name": "AWS_DEFAULT_REGION",
