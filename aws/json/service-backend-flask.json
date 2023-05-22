@@ -1,39 +1,42 @@
 {
-    "cluster": "cruddur",
-    "launchType": "FARGATE",
-    "desiredCount": 1,
-    "enableECSManagedTags": true,
-    "enableExecuteCommand": true,
-    "networkConfiguration": {
-      "awsvpcConfiguration": {
-        "assignPublicIp": "ENABLED",
-        "securityGroups": [
-          "sg-0ffc93ee3bd1e2868"
-        ],
-        "subnets": [
-          "subnet-0bf2785aa97d67171",
-          "subnet-0842ade2a92cf509f",
-          "subnet-0480373232a07c94a",
-          "subnet-06f8bd42f05d01341"
-        ]
-      }
-    },
-    "propagateTags": "SERVICE",
-    "serviceName": "backend-flask",
-    "taskDefinition": "backend-flask",
-    "serviceConnectConfiguration": {
-      "enabled": true,
-      "namespace": "cruddur",
-      "services": [
-        {
-          "portName": "backend-flask",
-          "discoveryName": "backend-flask",
-          "clientAliases": [{"port": 4567}]
-        }
+  "cluster": "cruddur",
+  "launchType": "FARGATE",
+  "desiredCount": 1,
+  "enableECSManagedTags": true,
+  "enableExecuteCommand": true,
+  "loadBalancers": [
+    {
+        "targetGroupArn": "arn:aws:elasticloadbalancing:ca-central-1:387543059434:targetgroup/cruddur-backend-flask-tg/87ed2a3daf2d2b1d",
+        "containerName": "backend-flask",
+        "containerPort": 4567
+    }
+  ],
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "assignPublicIp": "ENABLED",
+      "securityGroups": [
+        "sg-0ffc93ee3bd1e2868"
+      ],
+      "subnets": [
+        "subnet-0bf2785aa97d67171",
+        "subnet-0842ade2a92cf509f",
+        "subnet-0480373232a07c94a",
+        "subnet-06f8bd42f05d01341"
       ]
     }
-  }
-
-
-
-  
+  },
+  "serviceConnectConfiguration": {
+    "enabled": true,
+    "namespace": "cruddur",
+    "services": [
+      {
+        "portName": "backend-flask",
+        "discoveryName": "backend-flask",
+        "clientAliases": [{"port": 4567}]
+      }
+    ]
+  },
+  "propagateTags": "SERVICE",
+  "serviceName": "backend-flask",
+  "taskDefinition": "backend-flask"
+}
