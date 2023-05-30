@@ -4,16 +4,16 @@
   "desiredCount": 1,
   "enableECSManagedTags": true,
   "enableExecuteCommand": true,
-  "networkConfiguration": {
-    "awsvpcConfiguration": {
-      "assignPublicIp": "ENABLED",
-      "loadBalancers": [
+   "loadBalancers": [
         {
-            "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:424925313933:targetgroup/front-flask-crud/1ae2c0479348bffb",
+            "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:424925313933:targetgroup/front-end-crud/ffcbc5e8219f0473",
             "containerName": "frontend-react-js",
             "containerPort": 3000
         }
       ],
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "assignPublicIp": "ENABLED",
       "securityGroups": [
         "sg-0ffc93ee3bd1e2868"
       ],
