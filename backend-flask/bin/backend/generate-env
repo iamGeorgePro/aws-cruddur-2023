@@ -2,7 +2,13 @@
 
 require 'erb'
 
-template = File.read 'erb/backend-flask.env.erb'
+template = File.read '/workspace/aws-bootcamp-cruddur-2023/erb/backend-flask.env.erb'
 content = ERB.new(template).result(binding)
-filename = "backend-flask.env"
-File.write(filename, content)
+
+# ANSI escape sequence for blue color
+blue_color = "\e[34m"
+# ANSI escape sequence to reset the color
+reset_color = "\e[0m"
+
+# Print the content with blue color
+puts "#{blue_color}#{content}#{reset_color}"
