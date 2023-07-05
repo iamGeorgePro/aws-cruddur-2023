@@ -1,4 +1,13 @@
 tasks:
+  - name: aws-sam
+    before: |
+      cd /workspace
+      wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+      unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
+      sudo ./sam-installation/install
+      sudo rm -rf ./aws-sam-cli-linux-x86_64.zip
+      sudo rm -rf ./sam-installation
+      cd $THEIA_WORKSPACE_ROOT
   - name: aws-cli
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
@@ -8,6 +17,12 @@ tasks:
       unzip awscliv2.zip
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
+  - name: cfn
+    before: |
+      bundle update --bundler
+      pip install cfn-lint
+      cargo install cfn-guard
+      gem install cfn-toml
   - name: postgres
     before: |
       curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
@@ -33,6 +48,12 @@ tasks:
       sudo dpkg -i session-manager-plugin.deb
       cd backend-flask
       aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
+   - name: cdk
+     before: |
+      npm install aws-cdk -g
+      cd thumbing-serverless-cdk
+      cp .env.example .env
+      npm i
 vscode:
   extensions:
     - 42Crunch.vscode-openapi
