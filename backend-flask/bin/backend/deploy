@@ -21,3 +21,4 @@ aws ecs update-service \
 #--service $SERVICE_NAME \
 #--query 'services[0].deployments' \
 #--output table
+
