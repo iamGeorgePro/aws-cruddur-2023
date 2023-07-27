@@ -4,5 +4,5 @@ region = 'us-east-1'
 stack_name = 'CrdCluster'
 
 [parameters]
-CertificateArn = 'arn:aws:acm:us-east-1:424925313933:certificate/a42282cc-81d2-424d-b8f1-cf7ddee4e185'
+CertificateArn = 'arn:aws:acm:us-east-1:424925313933:certificate/e7d17ca3-9eae-4b70-b49b-698c9392e83c'
 NetworkingStack = 'CrdNet'
