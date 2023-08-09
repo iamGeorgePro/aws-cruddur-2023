@@ -7,11 +7,11 @@ ABS_PATH=$(readlink -f "$0")
 FRONTEND_PATH=$(dirname "$ABS_PATH")
 BIN_PATH=$(dirname "$FRONTEND_PATH")
 PROJECT_PATH=$(dirname "$BIN_PATH")
-FRONTEND_REACT_JS_PATH="$PROJECT_PATH/frontend-react-js"
+FRONTEND_REACT_JS_PATH="/workspace/aws-bootcamp-cruddur-2023/frontend-react-js"
 
 # Change to the React app directory
 cd "$FRONTEND_REACT_JS_PATH"
-echo "Current directory: $FRONTEND_REACT_JS_PATH"
+
 
 # Set environment variables
 export REACT_APP_BACKEND_URL="https://api.georgekwabena.website"
