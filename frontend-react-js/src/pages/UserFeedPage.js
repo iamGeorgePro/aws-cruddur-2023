@@ -5,8 +5,10 @@ import { useParams } from 'react-router-dom';
 import DesktopNavigation  from '../components/DesktopNavigation';
 import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
-//import ProfileHeading from '../components/ProfileHeading';
-//import ProfileForm from 'components/ProfileForm';
+import ProfileHeading from '../components/ProfileHeading';
+import ProfileForm from '../components/ProfileForm';
+import ActivityForm from '../components/ActivityForm'
+
 
 import {get} from '../lib/Requests';
 import {checkAuth} from '../lib/CheckAuth';

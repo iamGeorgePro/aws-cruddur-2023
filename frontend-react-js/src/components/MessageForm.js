@@ -1,9 +1,10 @@
 import './MessageForm.css';
+import FormErrors from '../components/FormErrors';
 import React from "react";
 import process from 'process';
 import { useParams } from 'react-router-dom';
 import {post} from '../lib/Requests';;
-//import FormErrors from 'components/FormErrors';
+
 
 export default function ActivityForm(props) {
   const [count, setCount] = React.useState(0);
