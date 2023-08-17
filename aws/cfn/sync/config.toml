@@ -1,9 +1,9 @@
 [deploy]
-bucket = 'cfn-artifacts-beici'
+bucket = 'cfn-artifacts-week0'
 region = 'us-east-1'
 stack_name = 'CrdSyncRole'
 
 [parameters]
-GitHubOrg = 'beiciliang'
+GitHubOrg = 'week0'
 RepositoryName = 'aws-bootcamp-cruddur-2023'
 OIDCProviderArn = ''
