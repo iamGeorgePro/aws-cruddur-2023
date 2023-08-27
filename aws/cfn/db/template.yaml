@@ -97,6 +97,7 @@ Resources:
       PubliclyAccessible: true
       VPCSecurityGroups:
         - !GetAtt RDSPostgresSG.GroupId
+      CertificateAuthority: 'rds-ca-ecc384-g1' 
 #Outputs:
 #  ServiceSecurityGroupId:
 #    Value: !GetAtt ServiceSG.GroupId

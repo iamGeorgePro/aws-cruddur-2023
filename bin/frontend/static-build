@@ -19,7 +19,7 @@ export REACT_APP_API_GATEWAY_ENDPOINT_URL="https://bv6xjs8dgh.execute-api.us-eas
 export REACT_APP_AWS_PROJECT_REGION="$AWS_DEFAULT_REGION"
 export REACT_APP_AWS_COGNITO_REGION="$AWS_DEFAULT_REGION"
 export REACT_APP_AWS_USER_POOLS_ID="us-east-1_npik2C9Hl"
-export REACT_APP_CLIENT_ID="53o90paobelh2dmv4cq4amn2glq"
+export REACT_APP_CLIENT_ID="3o90paobelh2dmv4cq4amn2glq"
 
 # Run npm build
 npm run build

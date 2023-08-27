@@ -3,7 +3,7 @@
 require 'aws_s3_website_sync'
 require 'dotenv'
 
-env_path = "/workspace/aws-bootcamp-cruddur-2023/sync.env"
+env_path = "/workspace/aws-bootcamp-cruddur-2023/erb/sync.env.erb"
 Dotenv.load(env_path)
 
 puts "== configuration"
@@ -12,11 +12,15 @@ puts "s3_bucket:            #{ENV["SYNC_S3_BUCKET"]}"
 puts "distribution_id:      #{ENV["SYNC_CLOUDFRONT_DISTRIBUTION_ID"]}"
 puts "build_dir:            #{ENV["SYNC_BUILD_DIR"]}"
 
+
 changeset_path = ENV["SYNC_OUTPUT_CHANGESET_PATH"]
 changeset_path = changeset_path.sub(".json","-#{Time.now.to_i}.json")
 
 puts "output_changeset_path: #{changeset_path}"
 puts "auto_approve:          #{ENV["SYNC_AUTO_APPROVE"]}"
+
+
+
 
 puts "sync =="
 AwsS3WebsiteSync::Runner.run(
