@@ -17,3 +17,6 @@ aws ecs execute-command  \
 --container $CONTAINER_NAME \
 --command "/bin/bash" \
 --interactive
+
+
+b
