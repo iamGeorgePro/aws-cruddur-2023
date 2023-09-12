@@ -5,3 +5,5 @@ echo $ECR_BACKEND_FLASK_URL
 
 docker tag backend-flask-prod:latest $ECR_BACKEND_FLASK_URL:latest
 docker push $ECR_BACKEND_FLASK_URL:latest
+
+CONNECTION_URL=$PROD_CONNECTION_URL ./bin/db/migrate.Column
