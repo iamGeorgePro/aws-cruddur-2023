@@ -1,4 +1,9 @@
 [deploy]
-bucket = 'cfn-artifacts'
-region = 'ca-central-1'
+bucket = 'cfn-artifacts-week0'
+region = 'us-east-1'
 stack_name = 'CrdSrvBackendFlask'
+
+
+[parameters]
+EnvFrontendUrl = 'https://georgekwabena.website'
+EnvBackendUrl = 'https://api.georgekwabena.website'

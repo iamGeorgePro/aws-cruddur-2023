@@ -1,7 +1,8 @@
-venv/
-
-docker/**/*
-
 docker/**/*
 frontend-react-js/build/*
 *.env
+node_modules
+session-manager-plugin.*
+.aws-sam
+build.toml
+tmp/*

@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts-week0'
+region = 'us-east-1'
+stack_name = 'CrdFrontend'
+
+[parameters]
+CertificateArn = 'arn:aws:acm:us-east-1:424925313933:certificate/e7d17ca3-9eae-4b70-b49b-698c9392e83c'
+WwwBucketName = 'www.georgekwabena.website'
+RootBucketName = 'georgekwabena.website'
