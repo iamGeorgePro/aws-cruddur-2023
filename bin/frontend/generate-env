@@ -5,6 +5,7 @@ require 'erb'
 template = File.read '/workspace/aws-bootcamp-cruddur-2023/erb/frontend-react-js.env.erb'
 content = ERB.new(template).result(binding)
 filename = "sync.env"
+filename = "frontend-react-js.env"
 File.write(filename, content)
 
 # ANSI escape sequence for blue color
