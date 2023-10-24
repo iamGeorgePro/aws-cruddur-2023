@@ -1,0 +1,57 @@
+{
+    "name": "Cruddur Configuration",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "features": {
+        "ghcr.io/devcontainers/features/aws-cli:1": {}
+    },
+    "remoteEnv": {
+        "AWS_CLI_AUTO_PROMPT": "on-partial"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "ms-python.python",
+                "vscodevim.vim"
+            ],
+            "settings": {
+                "terminal.integrated.fontSize": 20,
+                "editor.fontSize": 20,
+                "workbench.colorTheme": "Default Dark+ Experimental"
+            }
+        },
+        "tasks": [
+            {
+                "label": "Setup Python",
+                "type": "shell",
+                "command": [
+                    "sudo apt update",
+                    "sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev",
+                    "curl https://pyenv.run | bash",
+                    "pyenv install 3.10.9",
+                    "pyenv global 3.10.9",
+                    "python3 -m venv venv",
+                    "source venv/bin/activate",
+                    "pip install flask",
+                    "pip install --upgrade pip"
+                ]
+            },
+            {
+                "label": "Setup PostgreSQL",
+                "type": "shell",
+                "command": [
+                    "curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg",
+                    "echo 'deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main' | sudo tee /etc/apt/sources.list.d/pgdg.list",
+                    "sudo apt update",
+                    "sudo apt install -y postgresql-client-13 libpq-dev"
+                ]
+            }
+        ],
+        "remoteEnv": {
+            "PATH": "${remoteEnv:PATH}:~/.pyenv/bin",
+            "PYENV_ROOT": "~/.pyenv",
+            "LANG": "en_US.UTF-8",
+            "LC_ALL": "en_US.UTF-8"
+        }
+    }
+}

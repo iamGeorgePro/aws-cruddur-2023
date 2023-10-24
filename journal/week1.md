@@ -107,7 +107,7 @@ Tried connecting via CLI client:
 sudo apt-get install -y postgresql-client
 psql -h localhost -U postgres
 ```
-![CleanShot 2023-02-24 at 08 56 13]()
+![Proof of postgres database](assets/postgress.png)
 
 ## Homework Challenges
 ### Run the Dockerfile CMD as an external script
@@ -124,7 +124,6 @@ docker build -t backend-flask ./backend-flask
 ```sh
 docker run -d --rm -p 4567:4567 -it -e FRONTEND_URL='*' -e BACKEND_URL='*' backend-flask
 ```
-[Link to commit]()
 
 #### Log
 ```sh
@@ -215,12 +214,12 @@ https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 
 #### 2. Tag the image
 ```sh
-docker tag backend-flask nickda/cruddur-backend-flask:1.0
+docker tag aws-bootcamp-cruddur-2023-backend-flask georgepro1/cruddur-backend-flask:v1
 ```
 
 #### 3. Push the image to Docker Hub
 ```sh
-docker push nickda/cruddur-backend-flask:1.0
+docker push georgepro1/cruddur-backend-flask:v1
 ```
 ##### Log
 ```
@@ -236,11 +235,11 @@ cb35014d1c7c: Pushed
 5be8f6899d42: Pushed 
 8d60832b730a: Pushed 
 63b3cf45ece8: Pushed 
-1.0: digest: sha256:3750d50af5abd8f633f5219e0dd7df7a83efa557452b08d6f70a3c88f1688bbd size: 2617
+v1: digest: sha256:cbc2104978a95dfca63e0776f18bb9e3c9648d0270a7a434e959d2803b3b2874 size: 2203
 ```
 
 #### 4. Verify in GUI that the image was indeed pushed
-![CleanShot 2023-02-24 at 11 07 00]()
+![CleanShot 2023-02-24 at 11 07 00](assets/dockerhub.png)
 
 
 #### 5. Deleting the Docker Hub credentials from the ~/.docker/config.json
@@ -260,8 +259,8 @@ To determine whether that is the case let's check the size of our non-multi-stag
 
 ```sh
 docker images backend-flask:latest
-REPOSITORY      TAG       IMAGE ID       CREATED         SIZE
-backend-flask   latest    55a3ed61463a   9 minutes ago   129MB <--- image size is here
+REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
+backend-flask   latest    2cb00c11d19e   13 minutes ago   276MB <--- image size is here
 ```
 #### Stage 1 - Building the application
 In the first stage, the application is built by installing the required Python packages specified in requirements.txt. The --user flag is used to install packages in the local user's home directory instead of the system directory, and the --no-cache-dir flag is used to avoid caching the installed packages, which helps to reduce the final image size.
@@ -301,7 +300,7 @@ CMD [ "/usr/local/bin/run_flask.sh"]
 ```sh
 docker images backend-flask:latest
 REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
-backend-flask   latest    5f1e02872672   33 seconds ago   122MB <--- Yay! We saved Gitpod 7MB of storage
+backend-flask   latest    2f68bf882cf0   16 seconds ago   223MB <--- woow! We saved Gitpod 53MB of storage
 ```
 
 ### Implementing the healthcheck in docker-compose
@@ -327,7 +326,7 @@ services:
       retries: 3
 ```
 
->I struggled a little bit with forming the URL correctly. e.g., when the URL had a trailing slash like this: `https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}/api/activities/home/`, the healthcheck would fail.
+
 
 >Additionally, if using curl for healthcheck it needs to be installed into the container. Hence, the Dockerfile update:
 ```dockerfile
@@ -384,9 +383,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ![CleanShot 2023-02-25 at 09 51 38]()
 #### Cloned the cruddur repo locally and created a branch to avoid impacting gitpod runs
 ![CleanShot 2023-02-25 at 09 54 04]()
-#### Installed NPM
 ```sh
-brew install npm
 cd frontend-react-js
 npm install
 ```
