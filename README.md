@@ -38,9 +38,10 @@ Cruddur leverages the following technologies to create a modern and scalable soc
   - Bash scripts to automate DX
   - VPC
   - Route53
+  - CloudFront
 
 - **Frontend:**
-  - Next.js
+  - React.js
   - Tailwind CSS
   - Headless UI
   - React Hook Form and Zod (validation)
@@ -54,6 +55,7 @@ Cruddur leverages the following technologies to create a modern and scalable soc
   - Logging and observability integrations
 
 ---
+My demo can be seen on https://georgekwabena.website/, which just serves as a static website. This is because the task of Fargate services has been set to 0 in order to save my AWS budget. 
 
 The project was created as part of the [Free AWS Cloud Project Bootcamp](https://aws.cloudprojectbootcamp.com/) organized by [Exampro](https://www.exampro.co/)
 
